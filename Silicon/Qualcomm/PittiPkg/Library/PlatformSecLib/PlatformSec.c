@@ -10,8 +10,8 @@
 VOID
 PlatformInitialize ()
 {
-  // Set MDP SIDs (from Pitti SM4635 device tree: 0x420, 0x421, 0x43C, 0x43D)
-  CONST UINT16 MdpStreams[] = { 0x420, 0x421, 0x43C, 0x43D };
+  // Set MDP SIDs (0x420, 0x421, 0x43C, 0x43D) and UFS SID (0x180) from SM4635 device tree
+  CONST UINT16 MdpStreams[] = { 0x420, 0x421, 0x43C, 0x43D, 0x180 };
 
   // Detach IOMMU Domains
   ArmSmmuDetach (MdpStreams, ARRAY_SIZE (MdpStreams));

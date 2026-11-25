@@ -25,7 +25,6 @@ INF MdeModulePkg/Core/Dxe/DxeMain.inf
   INF ArmPkg/Drivers/TimerDxe/TimerDxe.inf
 
   INF warmPkg/Drivers/WarmUfsHcDxe/WarmUfsHcDxe.inf
-  INF warmPkg/Drivers/WarmUsbDeviceDxe/WarmUsbDeviceDxe.inf
   INF MdeModulePkg/Bus/Ufs/UfsPassThruDxe/UfsPassThruDxe.inf
   INF MdeModulePkg/Bus/Scsi/ScsiBusDxe/ScsiBusDxe.inf
   INF MdeModulePkg/Bus/Scsi/ScsiDiskDxe/ScsiDiskDxe.inf

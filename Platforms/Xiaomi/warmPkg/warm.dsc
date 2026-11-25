@@ -77,12 +77,16 @@
   #
   UefiScsiLib|MdePkg/Library/UefiScsiLib/UefiScsiLib.inf
 
+  #
+  # DMA / IOMMU (no hardware SMMU translation in UEFI; SiliciumPkg defaults to IoMmuLib which adds gEdkiiIoMmuProtocolGuid to Depex)
+  #
+  IoMmuLib|MdeModulePkg/Library/IoMmuLibNull/IoMmuLibNull.inf
+
 [Components]
   warmPkg/Drivers/WarmUfsHcDxe/WarmUfsHcDxe.inf {
     <LibraryClasses>
       DmaLib|EmbeddedPkg/Library/NonCoherentDmaLib/NonCoherentDmaLib.inf
   }
-  warmPkg/Drivers/WarmUsbDeviceDxe/WarmUsbDeviceDxe.inf
   MdeModulePkg/Bus/Ufs/UfsPassThruDxe/UfsPassThruDxe.inf
   MdeModulePkg/Bus/Scsi/ScsiBusDxe/ScsiBusDxe.inf
   MdeModulePkg/Bus/Scsi/ScsiDiskDxe/ScsiDiskDxe.inf
