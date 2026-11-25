@@ -13,6 +13,20 @@
 .set CTRL_SPAN_BIT, BIT23
 
 ASM_FUNC (_ModuleEntryPoint)
+  /* STAGE 4: Fill Framebuffer with Solid WHITE (0xFFFFFFFFFFFFFFFF) */
+  movz  x8, #0x9ec0, lsl #16
+  movz  x9, #0x48, lsl #16
+  mvn   x10, xzr
+.Lwhite_loop:
+  stp   x10, x10, [x8], #16
+  subs  x9, x9, #16
+  b.ne  .Lwhite_loop
+
+  movz  x8, #0x0800, lsl #16
+.Lwhite_delay:
+  subs  x8, x8, #1
+  b.ne  .Lwhite_delay
+
   // Do Platform Specific Initialization
   bl    ASM_PFX (PlatformAssemblyInitialize)
 
