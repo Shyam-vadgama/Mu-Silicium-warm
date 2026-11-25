@@ -1,0 +1,38 @@
+## @file
+#  Polled DWC3 USB Device Protocol driver for Xiaomi Redmi A4 5G (warm / SM4635).
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = WarmUsbDeviceDxe
+  FILE_GUID                      = 4E7A91D2-8C3B-4A65-B19F-0D4E00001001
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = WarmUsbDeviceEntry
+
+[Sources]
+  WarmUsbDeviceDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  QcomPkg/QcomPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  CacheMaintenanceLib
+  DebugLib
+  IoLib
+  MemoryAllocationLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  UefiLib
+
+[Protocols]
+  gEfiUsbDeviceProtocolGuid             ## PRODUCES
+
+[Depex]
+  TRUE

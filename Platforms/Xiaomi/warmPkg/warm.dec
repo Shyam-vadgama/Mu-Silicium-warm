@@ -1,0 +1,10 @@
+##
+#  Copyright (c) 2026, HakiOS Project. All rights reserved.
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = warmPkg
+  PACKAGE_GUID                   = 4A7B1C9E-8E2A-4F3D-9A6B-1C5E7D8F9A0B
+  PACKAGE_VERSION                = 0.1

@@ -1,0 +1,41 @@
+## @file
+#  MMIO UFS Host Controller & Platform Protocol driver for Xiaomi Redmi A4 5G (warm / SM4635).
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = WarmUfsHcDxe
+  FILE_GUID                      = 6C9A3F14-7B2E-4D8A-9F11-2D3E4F5A6B7C
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = WarmUfsHcEntry
+
+[Sources]
+  WarmUfsHcDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+
+[LibraryClasses]
+  BaseLib
+  BaseMemoryLib
+  DebugLib
+  DmaLib
+  IoLib
+  MemoryAllocationLib
+  TimerLib
+  UefiBootServicesTableLib
+  UefiDriverEntryPoint
+  UefiLib
+
+[Protocols]
+  gEfiDevicePathProtocolGuid            ## PRODUCES
+  gEdkiiUfsHostControllerProtocolGuid   ## PRODUCES
+  gEdkiiUfsHcPlatformProtocolGuid       ## PRODUCES
+
+[Depex]
+  TRUE
