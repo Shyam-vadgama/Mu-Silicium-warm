@@ -126,7 +126,10 @@ def write_header_v3_and_above(args):
                            args.cmdline))
     if args.header_version >= 4:
         # The signature used to verify boot image v4.
-        args.output.write(pack('I', BOOT_IMAGE_V4_SIGNATURE_SIZE))
+        boot_signature_size = 0
+        if getattr(args, 'gki_signing_key', None) and getattr(args, 'gki_signing_algorithm', None):
+            boot_signature_size = BOOT_IMAGE_V4_SIGNATURE_SIZE
+        args.output.write(pack('I', boot_signature_size))
     pad_file(args.output, BOOT_IMAGE_HEADER_V3_PAGESIZE)
 
 
@@ -630,7 +633,7 @@ def write_data(args, pagesize):
         write_padded_file(args.output, args.recovery_dtbo, pagesize)
     if args.header_version == 2:
         write_padded_file(args.output, args.dtb, pagesize)
-    if args.header_version >= 4:
+    if args.header_version >= 4 and getattr(args, 'gki_signing_key', None) and getattr(args, 'gki_signing_algorithm', None):
         add_boot_image_signature(args, pagesize)
 
 
